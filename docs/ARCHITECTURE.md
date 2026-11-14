@@ -24,7 +24,7 @@ AirGuard AI is an enterprise-grade civic environmental intelligence platform tha
 |  +------------------------------------------------------------------+  |
 |  | Evidence Traceability Registry: Immutable Evidence IDs           |  |
 |  +------------------------------------------------------------------+  |
-|  | AI Interpretation: Google Gemini 2.5 Flash + Fallback Engine     |  |
+|  | AI Interpretation: Google Gemini 3.5 Flash + Fallback Engine     |  |
 |  +------------------------------------------------------------------+  |
 |  | ReportLab PDF Synthesis Engine: Official Government Briefings     |  |
 |  +------------------------------------------------------------------+  |

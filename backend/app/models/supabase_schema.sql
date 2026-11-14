@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS public.analysis_runs (
     ai_insights JSONB NOT NULL,
     evidence_registry JSONB NOT NULL,
     data_limitations JSONB NOT NULL DEFAULT '[]'::jsonb,
-    ai_engine TEXT NOT NULL DEFAULT 'Gemini 2.5 Flash',
+    ai_engine TEXT NOT NULL DEFAULT 'Gemini 3.5 Flash',
     is_demo_mode BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
 );

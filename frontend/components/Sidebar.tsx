@@ -112,7 +112,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
               <span className="text-[11px] font-semibold text-muted uppercase">Intelligence Status</span>
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
             </div>
-            <div className="text-xs text-foreground font-medium">Gemini 2.5 / Rule Engine</div>
+            <div className="text-xs text-foreground font-medium">Gemini 3.5 Flash / Rule Engine</div>
             <p className="text-[10px] text-muted mt-0.5">Deterministic Audit Active</p>
           </div>
         </div>

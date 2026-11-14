@@ -67,7 +67,7 @@ export default function SettingsPage() {
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-foreground">Google Gemini AI Engine</h3>
-                  <p className="text-xs text-muted">Model: gemini-2.5-flash / gemini-1.5-pro</p>
+                  <p className="text-xs text-muted">Model: gemini-3.5-flash</p>
                 </div>
               </div>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface border border-surfaceBorder text-muted">

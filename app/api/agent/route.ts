@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
     const evidenceCitations: string[] = [];
 
     if (executedTools.length > 0) {
-      responseText = `### 🤖 AirGuard Vercel AI Agent Report\n\n`;
+      responseText = `### 🤖 AirGuard AI Agent Report (Google Gemini 3.5 Flash)\n\n`;
       for (const t of executedTools) {
         if (t.name === "getHotspots") {
           responseText += `**Pollution Hotspot Analysis:**\n`;

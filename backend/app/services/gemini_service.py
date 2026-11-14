@@ -36,7 +36,7 @@ class GeminiService:
         Generates evidence-backed structured findings.
         Returns: (List[AIFinding], ai_engine_name, is_demo_mode)
         """
-        # If Gemini client is active, try calling Gemini 2.5 Flash
+        # If Gemini client is active, try calling Gemini 3.5 Flash
         if self.is_gemini_active():
             try:
                 prompt = f"""

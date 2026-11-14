@@ -306,7 +306,7 @@ export default function AssistantPage() {
           <div className="flex items-center justify-between text-[11px] text-muted mt-2 px-1">
             <span>
               Framework: <strong className="text-foreground">Vercel AI SDK Core</strong> • Model:{" "}
-              <strong className="text-foreground">Gemini 2.5 Flash</strong> • Zero Hallucination Guardrails
+              <strong className="text-foreground">Gemini 3.5 Flash</strong> • Zero Hallucination Guardrails
             </span>
             <span className="flex items-center gap-1 text-emerald-400">
               <CheckCircle2 className="w-3 h-3" />
