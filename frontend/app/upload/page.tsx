@@ -98,13 +98,15 @@ export default function DataUploadCenter() {
       fd.append("file", file);
       const res = await api.uploadFile(fd);
       setUploadData(res);
+      const cols: string[] = res.detected_columns || res.columns || [];
+      const findCol = (regex: RegExp) => cols.find((c: string) => regex.test(c)) || "";
       setMapping({
-        pm25_col: res.suggested_mapping.pm25_col || "",
-        pm10_col: res.suggested_mapping.pm10_col || "",
-        location_col: res.suggested_mapping.location_col || "",
-        timestamp_col: res.suggested_mapping.timestamp_col || "",
-        unit_col: res.suggested_mapping.unit_col || "",
-        station_col: res.suggested_mapping.station_col || "",
+        pm25_col: res.suggested_mapping?.pm25_col || findCol(/pm_?2\.?5|particulate_?25|fine_?pm/i),
+        pm10_col: res.suggested_mapping?.pm10_col || findCol(/pm_?10|particulate_?10|coarse_?pm/i),
+        location_col: res.suggested_mapping?.location_col || findCol(/ward|area|location|zone|region/i),
+        timestamp_col: res.suggested_mapping?.timestamp_col || findCol(/date|time|reading_?date|timestamp/i),
+        unit_col: res.suggested_mapping?.unit_col || findCol(/unit|measurement_?unit/i),
+        station_col: res.suggested_mapping?.station_col || findCol(/station|site|sensor/i),
       });
     } catch (err: any) {
       setErrorMsg(err.message || "Failed to parse file.");
@@ -125,13 +127,15 @@ export default function DataUploadCenter() {
       fd.append("pasted_data", pastedContent);
       const res = await api.uploadFile(fd);
       setUploadData(res);
+      const cols: string[] = res.detected_columns || res.columns || [];
+      const findCol = (regex: RegExp) => cols.find((c: string) => regex.test(c)) || "";
       setMapping({
-        pm25_col: res.suggested_mapping.pm25_col || "",
-        pm10_col: res.suggested_mapping.pm10_col || "",
-        location_col: res.suggested_mapping.location_col || "",
-        timestamp_col: res.suggested_mapping.timestamp_col || "",
-        unit_col: res.suggested_mapping.unit_col || "",
-        station_col: res.suggested_mapping.station_col || "",
+        pm25_col: res.suggested_mapping?.pm25_col || findCol(/pm_?2\.?5|particulate_?25|fine_?pm/i),
+        pm10_col: res.suggested_mapping?.pm10_col || findCol(/pm_?10|particulate_?10|coarse_?pm/i),
+        location_col: res.suggested_mapping?.location_col || findCol(/ward|area|location|zone|region/i),
+        timestamp_col: res.suggested_mapping?.timestamp_col || findCol(/date|time|reading_?date|timestamp/i),
+        unit_col: res.suggested_mapping?.unit_col || findCol(/unit|measurement_?unit/i),
+        station_col: res.suggested_mapping?.station_col || findCol(/station|site|sensor/i),
       });
     } catch (err: any) {
       setErrorMsg(err.message || "Failed to process pasted tabular data.");

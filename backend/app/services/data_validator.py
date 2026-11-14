@@ -4,8 +4,8 @@ import pandas as pd
 from app.schemas.dataset import ColumnMapping
 
 class DataValidator:
-    PM25_PATTERNS = [r"^pm_?2\.?5$", r"^pm25$", r"^particulate_?25$", r"^fine_?pm$"]
-    PM10_PATTERNS = [r"^pm_?10$", r"^particulate_?10$", r"^coarse_?pm$"]
+    PM25_PATTERNS = [r"^pm_?2\.?5.*", r"^pm25.*", r"^particulate_?25.*", r"^fine_?pm.*"]
+    PM10_PATTERNS = [r"^pm_?10.*", r"^particulate_?10.*", r"^coarse_?pm.*"]
     LOCATION_PATTERNS = [r"^ward(_?no)?$", r"^area$", r"^location$", r"^zone$", r"^region$", r"^suburb$"]
     TIMESTAMP_PATTERNS = [r"^date(_?time)?$", r"^time(stamp)?$", r"^reading_?date$", r"^measured_?at$"]
     STATION_PATTERNS = [r"^station(_?name)?$", r"^monitoring_?station$", r"^site(_?name)?$", r"^sensor(_?id)?$"]
@@ -15,9 +15,15 @@ class DataValidator:
 
     @classmethod
     def match_column(cls, col_name: str, patterns: List[str]) -> bool:
-        clean_name = col_name.strip().lower().replace(" ", "_")
+        # Strip trailing parenthetical units or brackets like (mg/m³), [µg/m³], (ug/m3)
+        stripped = re.sub(r"[\(\[\{].*?[\)\]\}]", "", col_name).strip()
+        clean_name = stripped.lower().replace(" ", "_").strip("_")
         for pattern in patterns:
             if re.match(pattern, clean_name):
+                return True
+        raw_clean = col_name.strip().lower().replace(" ", "_")
+        for pattern in patterns:
+            if re.match(pattern, raw_clean):
                 return True
         return False
 
