@@ -16,8 +16,9 @@ import logging
 from typing import Optional, List, Dict, Any, Tuple
 import pandas as pd
 import numpy as np
+import httpx
 
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Response
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Response, Query
 from fastapi.responses import JSONResponse
 
 from app.core.config import settings
@@ -623,4 +624,100 @@ def load_one_click_demo() -> Dict[str, Any]:
         "total_wards": overall_stats.total_wards,
         "top_hotspot": ward_rankings[0].ward if ward_rankings else None,
         "sample_report_id": sample_rep.report_id,
+    }
+
+
+@router.get("/geo/search", summary="Search Precise Location")
+async def geo_search(q: str = Query(..., min_length=2)):
+    """Search for precise location using local ward telemetry and OpenStreetMap Nominatim."""
+    results = []
+    # 1. Match local wards
+    analysis = db.get_latest_analysis()
+    if analysis and "ward_rankings" in analysis:
+        for w in analysis["ward_rankings"]:
+            if q.lower() in w["ward"].lower() or q.lower() in w.get("station", "").lower():
+                results.append({
+                    "id": f"ward-{w['ward']}",
+                    "name": w["ward"],
+                    "display_name": f"{w.get('station', '')} • PM2.5: {w.get('avg_pm25', 0)} µg/m³",
+                    "lat": w.get("latitude"),
+                    "lon": w.get("longitude"),
+                    "type": "ward",
+                    "pm25": w.get("avg_pm25"),
+                    "category": w.get("category"),
+                })
+    # 2. External Nominatim
+    try:
+        async with httpx.AsyncClient(timeout=4.0) as client:
+            resp = await client.get(
+                "https://nominatim.openstreetmap.org/search",
+                params={"q": q, "format": "json", "addressdetails": "1", "limit": 5},
+                headers={"User-Agent": "AirGuardAI/1.0"}
+            )
+            if resp.status_code == 200:
+                for item in resp.json():
+                    results.append({
+                        "id": f"osm-{item.get('osm_id', '')}",
+                        "name": item.get("display_name", "").split(",")[0],
+                        "display_name": item.get("display_name", ""),
+                        "lat": float(item["lat"]),
+                        "lon": float(item["lon"]),
+                        "type": "address",
+                    })
+    except Exception as exc:
+        logger.warning("OSM Nominatim search error: %s", exc)
+    return results
+
+
+@router.get("/geo/estimate", summary="Estimate Air Quality at Coordinates")
+def geo_estimate(lat: float = Query(...), lon: float = Query(...)):
+    """Compute Inverse-Distance-Weighted (IDW) particulate interpolation from ground monitors."""
+    import math
+    def haversine(lat1, lon1, lat2, lon2):
+        R = 6371.0
+        dlat = math.radians(lat2 - lat1)
+        dlon = math.radians(lon2 - lon1)
+        a = math.sin(dlat/2)**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon/2)**2
+        return 2 * R * math.asin(math.sqrt(a))
+
+    analysis = db.get_latest_analysis()
+    wards = analysis.get("ward_rankings", []) if analysis else []
+    valid = [w for w in wards if w.get("latitude") is not None and w.get("longitude") is not None]
+    if not valid:
+        return {"estimated_pm25": 75.0, "estimated_pm10": 120.0, "category": "Poor", "nearest_station": "Baseline"}
+
+    dists = []
+    for w in valid:
+        d = haversine(lat, lon, float(w["latitude"]), float(w["longitude"]))
+        dists.append((d, w))
+    dists.sort(key=lambda x: x[0])
+
+    nearest_d, nearest_w = dists[0]
+    active = dists[:5]
+    p = 2
+    w_sum, pm25_w, pm10_w = 0.0, 0.0, 0.0
+    for d, w in active:
+        weight = 1.0 / max(d, 0.05)**p
+        w_sum += weight
+        pm25_w += weight * float(w.get("avg_pm25", 0))
+        pm10_w += weight * float(w.get("avg_pm10", 0))
+
+    est_pm25 = round(pm25_w / w_sum, 1)
+    est_pm10 = round(pm10_w / w_sum, 1)
+
+    cat = "Good"
+    if est_pm25 > 120: cat = "Severe"
+    elif est_pm25 > 90: cat = "Very Poor"
+    elif est_pm25 > 60: cat = "Poor"
+    elif est_pm25 > 30: cat = "Moderate"
+
+    return {
+        "lat": lat,
+        "lon": lon,
+        "estimated_pm25": est_pm25,
+        "estimated_pm10": est_pm10,
+        "category": cat,
+        "nearest_station": nearest_w.get("station", ""),
+        "nearest_ward": nearest_w.get("ward", ""),
+        "distance_km": round(nearest_d, 2),
     }

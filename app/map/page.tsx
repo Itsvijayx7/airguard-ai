@@ -1,9 +1,18 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { useApp } from "@/components/RoleContext";
 import { HotspotLeafletMap } from "@/components/HotspotLeafletMap";
+import { LocationSearch } from "@/components/LocationSearch";
+import {
+  GeoSearchResult,
+  PreciseAirQualityEstimate,
+  interpolateAirQuality,
+  reverseGeocode,
+} from "@/lib/geoAirQuality";
+import { WardMetric } from "@/services/api";
 import {
   MapPin,
   Flame,
@@ -12,12 +21,25 @@ import {
   AlertCircle,
   ExternalLink,
   Layers,
+  Crosshair,
+  ShieldCheck,
+  Compass,
+  Sparkles,
+  X,
+  ArrowRight,
+  MessageSquare,
 } from "lucide-react";
 import { getCategoryColor } from "@/lib/utils";
 
 export default function PollutionMapPage() {
+  const router = useRouter();
   const { analysis, setSelectedEvidenceId } = useApp();
   const [categoryFilter, setCategoryFilter] = useState<string>("ALL");
+
+  // Precise search state
+  const [selectedLocation, setSelectedLocation] = useState<GeoSearchResult | null>(null);
+  const [airQualityEstimate, setAirQualityEstimate] =
+    useState<PreciseAirQualityEstimate | null>(null);
 
   const wards = analysis?.ward_rankings || [];
 
@@ -35,6 +57,61 @@ export default function PollutionMapPage() {
     return wards.filter((w) => w.latitude === null || w.longitude === null);
   }, [wards]);
 
+  // Handle location selected from search bar
+  const handleSelectLocation = useCallback(
+    (item: GeoSearchResult) => {
+      setSelectedLocation(item);
+      const estimate = interpolateAirQuality(item.lat, item.lon, wards, item.displayName);
+      setAirQualityEstimate(estimate);
+    },
+    [wards]
+  );
+
+  // Handle map click anywhere
+  const handleMapClick = useCallback(
+    async (lat: number, lon: number) => {
+      const addr = await reverseGeocode(lat, lon);
+      const clickedResult: GeoSearchResult = {
+        id: `click-${Date.now()}`,
+        name: `Pin at ${lat.toFixed(4)}°, ${lon.toFixed(4)}°`,
+        displayName: addr,
+        lat,
+        lon,
+        type: "custom",
+      };
+      setSelectedLocation(clickedResult);
+      const estimate = interpolateAirQuality(lat, lon, wards, addr);
+      setAirQualityEstimate(estimate);
+    },
+    [wards]
+  );
+
+  // Clear precise search selection
+  const handleClearLocation = useCallback(() => {
+    setSelectedLocation(null);
+    setAirQualityEstimate(null);
+  }, []);
+
+  // When clicking a ward circle marker
+  const handleSelectWard = useCallback(
+    (w: WardMetric) => {
+      if (w.latitude !== null && w.longitude !== null) {
+        handleSelectLocation({
+          id: `ward-${w.ward}`,
+          name: w.ward,
+          displayName: `${w.station} • ${w.category}`,
+          lat: w.latitude,
+          lon: w.longitude,
+          type: "ward",
+          wardData: w,
+          category: w.category,
+          pm25: w.avg_pm25,
+        });
+      }
+    },
+    [handleSelectLocation]
+  );
+
   return (
     <DashboardLayout>
       <div className="space-y-6 max-w-7xl mx-auto">
@@ -46,7 +123,7 @@ export default function PollutionMapPage() {
               <span>Pollution Hotspot Spatial Intelligence Map</span>
             </h1>
             <p className="text-xs text-muted mt-1">
-              Geospatial OpenStreetMap telemetry. Only verified coordinates are plotted.
+              Geospatial OpenStreetMap telemetry with precise micro-location search & IDW air quality estimation.
             </p>
           </div>
 
@@ -68,82 +145,250 @@ export default function PollutionMapPage() {
           </div>
         </div>
 
-        {/* Map Container + Legend */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Main Leaflet Map (3 columns) */}
-          <div className="lg:col-span-3 h-[540px] rounded-2xl overflow-hidden border border-surfaceBorder shadow-2xl relative">
-            <HotspotLeafletMap wards={mappedWards} />
+        {/* Precise Location Search Bar Row */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-3.5 rounded-2xl bg-surfaceCard border border-surfaceBorder shadow-md">
+          <div className="flex-1">
+            <LocationSearch
+              wards={mappedWards}
+              onSelectLocation={handleSelectLocation}
+              onClearLocation={handleClearLocation}
+              selectedLocationName={selectedLocation?.name}
+            />
           </div>
 
-          {/* Map Sidebar / Legend */}
-          <div className="p-5 rounded-2xl bg-surfaceCard border border-surfaceBorder space-y-5">
-            <div>
-              <h3 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-1">
-                <Layers className="w-4 h-4 text-primary" />
-                <span>Severity Scale (PM2.5)</span>
-              </h3>
-              <p className="text-[11px] text-muted">Circle radius proportional to particulate concentration</p>
-            </div>
+          <div className="flex items-center gap-2 text-[11px] text-muted self-end sm:self-center">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface border border-surfaceBorder">
+              <Crosshair className="w-3 h-3 text-primary" />
+              <span>Click anywhere on map to pin</span>
+            </span>
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-surface border border-surfaceBorder">
+              <ShieldCheck className="w-3 h-3 text-emerald-400" />
+              <span>IDW Spatial Model</span>
+            </span>
+          </div>
+        </div>
 
-            <div className="space-y-2.5 text-xs">
-              <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-500" />
-                  <span className="font-medium text-foreground">Severe</span>
+        {/* Map Container + Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          {/* Main Leaflet Map (3 columns) */}
+          <div className="lg:col-span-3 h-[560px] rounded-2xl overflow-hidden border border-surfaceBorder shadow-2xl relative">
+            <HotspotLeafletMap
+              wards={mappedWards}
+              selectedPreciseLocation={selectedLocation}
+              airQualityEstimate={airQualityEstimate}
+              onMapClick={handleMapClick}
+              onSelectWard={handleSelectWard}
+            />
+          </div>
+
+          {/* Map Sidebar: Conditional on whether a precise location is targeted */}
+          <div className="space-y-5">
+            {/* If precise location is targeted */}
+            {selectedLocation && airQualityEstimate ? (
+              <div className="p-5 rounded-2xl bg-surfaceCard border border-primary/40 shadow-glow space-y-4 animate-in fade-in duration-300">
+                {/* Header */}
+                <div className="flex items-start justify-between gap-2 border-b border-surfaceBorder pb-3">
+                  <div>
+                    <div className="flex items-center gap-1.5 text-primary text-[10px] font-bold uppercase tracking-wider">
+                      <Crosshair className="w-3.5 h-3.5 animate-pulse" />
+                      <span>Precise Location Target</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-foreground mt-1 line-clamp-2">
+                      {selectedLocation.name}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={handleClearLocation}
+                    title="Clear location filter"
+                    className="p-1 rounded-lg text-muted hover:text-foreground hover:bg-surface"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
-                <span className="text-muted font-mono">&gt; 120 µg/m³</span>
+
+                {/* Full Address */}
+                <div className="text-[11px] text-muted line-clamp-2">
+                  {airQualityEstimate.address}
+                </div>
+
+                {/* Coordinates */}
+                <div className="p-2 rounded-xl bg-surface border border-surfaceBorder flex items-center justify-between text-[11px]">
+                  <span className="text-muted">GIS Coordinates</span>
+                  <span className="font-mono text-foreground font-medium">
+                    {selectedLocation.lat.toFixed(5)}°, {selectedLocation.lon.toFixed(5)}°
+                  </span>
+                </div>
+
+                {/* Air Quality Reading */}
+                <div className="p-3.5 rounded-xl bg-surface border border-surfaceBorder space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted">Estimated PM2.5</span>
+                    <span
+                      className="text-xl font-bold"
+                      style={{
+                        color:
+                          airQualityEstimate.category === "Severe" ||
+                          airQualityEstimate.category === "Very Poor"
+                            ? "#EF4444"
+                            : airQualityEstimate.category === "Poor"
+                            ? "#F59E0B"
+                            : "#10B981",
+                      }}
+                    >
+                      {airQualityEstimate.estimatedPm25} µg/m³
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-muted">Estimated PM10</span>
+                    <span className="font-semibold text-foreground">
+                      {airQualityEstimate.estimatedPm10} µg/m³
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 border-t border-surfaceBorder/50">
+                    <span className="text-[11px] text-muted">Air Quality Index</span>
+                    <span
+                      className="px-2 py-0.5 rounded text-[10px] font-bold uppercase"
+                      style={{
+                        backgroundColor:
+                          airQualityEstimate.category === "Severe" ||
+                          airQualityEstimate.category === "Very Poor"
+                            ? "rgba(239, 68, 68, 0.15)"
+                            : "rgba(16, 185, 129, 0.15)",
+                        color:
+                          airQualityEstimate.category === "Severe" ||
+                          airQualityEstimate.category === "Very Poor"
+                            ? "#EF4444"
+                            : "#10B981",
+                      }}
+                    >
+                      {airQualityEstimate.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Proximity Ground Monitor */}
+                <div className="p-3 rounded-xl bg-surface border border-surfaceBorder space-y-1.5 text-xs">
+                  <div className="flex items-center justify-between text-muted text-[11px]">
+                    <span className="flex items-center gap-1">
+                      <Compass className="w-3 h-3 text-primary" />
+                      <span>Nearest Physical Sensor</span>
+                    </span>
+                    <span className="font-medium text-foreground">
+                      {airQualityEstimate.distanceKm} km ({airQualityEstimate.direction})
+                    </span>
+                  </div>
+                  <div className="font-semibold text-foreground">
+                    {airQualityEstimate.nearestStation}
+                  </div>
+                  <div className="text-[10px] text-muted">
+                    {airQualityEstimate.confidenceExplanation}
+                  </div>
+                </div>
+
+                {/* Recommended Civic Action */}
+                <div className="p-3 rounded-xl bg-primary/10 border border-primary/20 space-y-1 text-xs">
+                  <div className="flex items-center gap-1.5 text-primary font-semibold text-[11px]">
+                    <Sparkles className="w-3 h-3" />
+                    <span>Recommended Intervention</span>
+                  </div>
+                  <p className="text-[11px] text-muted leading-relaxed">
+                    {airQualityEstimate.recommendedAction}
+                  </p>
+                </div>
+
+                {/* Action button: Ask AirGuard AI */}
+                <button
+                  onClick={() =>
+                    router.push(
+                      `/assistant?prompt=${encodeURIComponent(
+                        `Analyze precise air quality for ${selectedLocation.name} (${selectedLocation.lat.toFixed(4)}, ${selectedLocation.lon.toFixed(4)}) with estimated PM2.5 of ${airQualityEstimate.estimatedPm25} µg/m³.`
+                      )}`
+                    )
+                  }
+                  className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-primary hover:bg-primary-hover text-background text-xs font-semibold shadow-glow transition-all"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>Ask AI About This Location</span>
+                </button>
               </div>
-
-              <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-orange-500" />
-                  <span className="font-medium text-foreground">Very Poor</span>
+            ) : (
+              /* Default Overview Sidebar (Severity Scale & Top Hotspot) */
+              <div className="p-5 rounded-2xl bg-surfaceCard border border-surfaceBorder space-y-5">
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground flex items-center gap-2 mb-1">
+                    <Layers className="w-4 h-4 text-primary" />
+                    <span>Severity Scale (PM2.5)</span>
+                  </h3>
+                  <p className="text-[11px] text-muted">
+                    Circle radius proportional to particulate concentration
+                  </p>
                 </div>
-                <span className="text-muted font-mono">91 - 120 µg/m³</span>
-              </div>
 
-              <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-amber-500" />
-                  <span className="font-medium text-foreground">Poor</span>
-                </div>
-                <span className="text-muted font-mono">61 - 90 µg/m³</span>
-              </div>
+                <div className="space-y-2 text-xs">
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-red-500" />
+                      <span className="font-medium text-foreground">Severe</span>
+                    </div>
+                    <span className="text-muted font-mono">&gt; 120 µg/m³</span>
+                  </div>
 
-              <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-cyan-500" />
-                  <span className="font-medium text-foreground">Moderate</span>
-                </div>
-                <span className="text-muted font-mono">31 - 60 µg/m³</span>
-              </div>
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-orange-500" />
+                      <span className="font-medium text-foreground">Very Poor</span>
+                    </div>
+                    <span className="text-muted font-mono">91 - 120 µg/m³</span>
+                  </div>
 
-              <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-emerald-500" />
-                  <span className="font-medium text-foreground">Good</span>
-                </div>
-                <span className="text-muted font-mono">0 - 30 µg/m³</span>
-              </div>
-            </div>
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-amber-500" />
+                      <span className="font-medium text-foreground">Poor</span>
+                    </div>
+                    <span className="text-muted font-mono">61 - 90 µg/m³</span>
+                  </div>
 
-            {/* Quick Hotspot Highlight */}
-            {mappedWards.length > 0 && (
-              <div className="p-3 rounded-xl bg-danger/10 border border-danger/30 space-y-1">
-                <div className="flex items-center gap-1.5 text-xs font-semibold text-danger">
-                  <Flame className="w-3.5 h-3.5" />
-                  <span>Primary Hotspot</span>
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-cyan-500" />
+                      <span className="font-medium text-foreground">Moderate</span>
+                    </div>
+                    <span className="text-muted font-mono">31 - 60 µg/m³</span>
+                  </div>
+
+                  <div className="flex items-center justify-between p-2 rounded-lg bg-surface border border-surfaceBorder">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-emerald-500" />
+                      <span className="font-medium text-foreground">Good</span>
+                    </div>
+                    <span className="text-muted font-mono">0 - 30 µg/m³</span>
+                  </div>
                 </div>
-                <div className="text-sm font-bold text-foreground">{mappedWards[0].ward}</div>
-                <p className="text-[11px] text-muted">
-                  Averaging {mappedWards[0].avg_pm25} µg/m³ across validated readings.
-                </p>
+
+                {/* Quick Hotspot Highlight */}
+                {mappedWards.length > 0 && (
+                  <div className="p-3 rounded-xl bg-danger/10 border border-danger/30 space-y-1">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-danger">
+                      <Flame className="w-3.5 h-3.5" />
+                      <span>Primary Hotspot</span>
+                    </div>
+                    <div className="text-sm font-bold text-foreground">
+                      {mappedWards[0].ward}
+                    </div>
+                    <p className="text-[11px] text-muted">
+                      Averaging {mappedWards[0].avg_pm25} µg/m³ across validated readings.
+                    </p>
+                  </div>
+                )}
               </div>
             )}
           </div>
         </div>
 
-        {/* Unmapped Locations Section (Requirement Section 11) */}
+        {/* Unmapped Locations Section (Section 11) */}
         {unmappedWards.length > 0 && (
           <div className="p-5 rounded-2xl bg-surfaceCard border border-surfaceBorder space-y-3">
             <div className="flex items-center gap-2 text-warning">
