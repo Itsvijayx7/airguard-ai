@@ -322,7 +322,7 @@ export async function fetchLiveTelemetry(
       "c84cac6b374ed2508dbb2d737ad3688f025b47852835200a490d63781684f772";
 
     if (key) {
-      const openAqUrl = `https://api.openaq.org/v3/locations?coordinates=${lat},${lon}&radius=50000&limit=3`;
+      const openAqUrl = `https://api.openaq.org/v3/locations?coordinates=${lat},${lon}&radius=25000&limit=5`;
       const res = await fetch(openAqUrl, {
         headers: { "X-API-Key": key, Accept: "application/json" },
         signal: AbortSignal.timeout(4000),

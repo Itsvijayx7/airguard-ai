@@ -56,7 +56,7 @@ class OpenAQService:
                 async with httpx.AsyncClient(timeout=4.5) as client:
                     resp = await client.get(
                         f"{self.BASE_URL}/locations",
-                        params={"coordinates": f"{lat},{lon}", "radius": 50000, "limit": 3},
+                        params={"coordinates": f"{lat},{lon}", "radius": 25000, "limit": 5},
                         headers={"X-API-Key": active_key, "User-Agent": "AirGuardAI/1.0"}
                     )
                     if resp.status_code == 200:
