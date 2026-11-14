@@ -1,6 +1,6 @@
 [
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":74.4,
@@ -11,7 +11,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":95.6,
@@ -22,7 +22,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":40.0,
@@ -33,7 +33,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":64.3,
@@ -44,7 +44,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":78.1,
@@ -55,7 +55,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":46.4,
@@ -66,7 +66,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":83.6,
@@ -77,7 +77,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 05:57:24",
+    "Reading_Date":"2026-11-11 07:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":null,
@@ -88,7 +88,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":68.5,
@@ -99,7 +99,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":103.1,
@@ -110,7 +110,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":41.0,
@@ -121,7 +121,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":56.6,
@@ -132,7 +132,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":-7.5,
@@ -143,7 +143,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":44.6,
@@ -154,7 +154,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":95.1,
@@ -165,7 +165,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":0.082,
@@ -176,7 +176,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":106.5,
@@ -187,7 +187,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":143.0,
@@ -198,7 +198,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":58.1,
@@ -209,7 +209,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":91.1,
@@ -220,7 +220,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":118.9,
@@ -231,7 +231,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":69.7,
@@ -242,7 +242,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":126.4,
@@ -253,7 +253,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":null,
@@ -264,7 +264,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":107.9,
@@ -275,7 +275,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":142.9,
@@ -286,7 +286,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":50.2,
@@ -297,7 +297,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":88.1,
@@ -308,7 +308,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":111.4,
@@ -319,7 +319,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":1240.0,
@@ -330,7 +330,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":139.1,
@@ -341,7 +341,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 17:57:24",
+    "Reading_Date":"2026-11-11 19:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":36.8,
@@ -352,7 +352,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":77.2,
@@ -363,7 +363,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":95.0,
@@ -374,7 +374,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":34.1,
@@ -385,7 +385,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":54.8,
@@ -396,7 +396,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":84.5,
@@ -407,7 +407,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":52.5,
@@ -429,7 +429,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 21:57:24",
+    "Reading_Date":"2026-11-11 23:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":21.5,
@@ -440,7 +440,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":106.9,
@@ -451,7 +451,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":145.9,
@@ -462,7 +462,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":52.1,
@@ -473,7 +473,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":93.0,
@@ -484,7 +484,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":"",
@@ -495,7 +495,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":68.0,
@@ -506,7 +506,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":136.3,
@@ -517,7 +517,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 01:57:24",
+    "Reading_Date":"2026-11-12 03:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":29.9,
@@ -528,7 +528,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":79.3,
@@ -539,7 +539,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":105.3,
@@ -550,7 +550,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":29.9,
@@ -561,7 +561,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":61.3,
@@ -572,7 +572,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":75.9,
@@ -583,7 +583,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":44.9,
@@ -594,7 +594,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":89.6,
@@ -605,7 +605,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 05:57:24",
+    "Reading_Date":"2026-11-12 07:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":30.1,
@@ -616,7 +616,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":72.4,
@@ -627,7 +627,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":104.5,
@@ -638,7 +638,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":33.9,
@@ -649,7 +649,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":60.3,
@@ -660,7 +660,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":82.9,
@@ -671,7 +671,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":54.2,
@@ -682,7 +682,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":83.3,
@@ -693,7 +693,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 09:57:24",
+    "Reading_Date":"2026-11-12 11:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":18.1,
@@ -704,7 +704,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":111.3,
@@ -715,7 +715,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":142.1,
@@ -726,7 +726,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":58.8,
@@ -737,7 +737,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":80.2,
@@ -748,7 +748,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":110.0,
@@ -759,7 +759,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":77.2,
@@ -770,7 +770,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":131.9,
@@ -781,7 +781,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 13:57:24",
+    "Reading_Date":"2026-11-12 15:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":32.7,
@@ -792,7 +792,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":104.9,
@@ -803,7 +803,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":145.3,
@@ -814,7 +814,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":49.3,
@@ -825,7 +825,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":92.9,
@@ -836,7 +836,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":115.1,
@@ -847,7 +847,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":68.2,
@@ -858,7 +858,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":130.0,
@@ -869,7 +869,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 17:57:24",
+    "Reading_Date":"2026-11-12 19:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":32.2,
@@ -880,7 +880,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":66.4,
@@ -891,7 +891,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":95.0,
@@ -902,7 +902,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":41.7,
@@ -913,7 +913,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":55.1,
@@ -924,7 +924,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":75.2,
@@ -935,7 +935,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":56.4,
@@ -946,7 +946,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":89.9,
@@ -957,7 +957,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-12 21:57:24",
+    "Reading_Date":"2026-11-12 23:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":29.1,
@@ -968,7 +968,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":100.4,
@@ -979,7 +979,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":143.7,
@@ -990,7 +990,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":56.7,
@@ -1001,7 +1001,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":92.8,
@@ -1012,7 +1012,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":114.6,
@@ -1023,7 +1023,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":78.6,
@@ -1034,7 +1034,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":127.9,
@@ -1045,7 +1045,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 01:57:24",
+    "Reading_Date":"2026-11-13 03:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":34.9,
@@ -1056,7 +1056,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":68.9,
@@ -1067,7 +1067,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":98.0,
@@ -1078,7 +1078,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":37.4,
@@ -1089,7 +1089,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":65.8,
@@ -1100,7 +1100,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":85.8,
@@ -1111,7 +1111,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":55.2,
@@ -1122,7 +1122,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":90.0,
@@ -1133,7 +1133,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 05:57:24",
+    "Reading_Date":"2026-11-13 07:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":23.4,
@@ -1144,7 +1144,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":70.7,
@@ -1155,7 +1155,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":95.5,
@@ -1166,7 +1166,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":36.1,
@@ -1177,7 +1177,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":65.2,
@@ -1188,7 +1188,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":80.0,
@@ -1199,7 +1199,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":45.5,
@@ -1210,7 +1210,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":96.8,
@@ -1221,7 +1221,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 09:57:24",
+    "Reading_Date":"2026-11-13 11:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":25.4,
@@ -1232,7 +1232,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":99.8,
@@ -1243,7 +1243,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":144.8,
@@ -1254,7 +1254,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":48.7,
@@ -1265,7 +1265,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":80.1,
@@ -1276,7 +1276,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":117.3,
@@ -1287,7 +1287,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":69.8,
@@ -1298,7 +1298,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":137.7,
@@ -1309,7 +1309,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 13:57:24",
+    "Reading_Date":"2026-11-13 15:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":37.3,
@@ -1320,7 +1320,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":104.9,
@@ -1331,7 +1331,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":145.1,
@@ -1342,7 +1342,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":49.4,
@@ -1353,7 +1353,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":82.3,
@@ -1364,7 +1364,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":118.4,
@@ -1375,7 +1375,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":70.9,
@@ -1386,7 +1386,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":126.3,
@@ -1397,7 +1397,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 17:57:24",
+    "Reading_Date":"2026-11-13 19:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":43.0,
@@ -1408,7 +1408,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":66.4,
@@ -1419,7 +1419,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":95.5,
@@ -1430,7 +1430,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":42.0,
@@ -1441,7 +1441,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":57.0,
@@ -1452,7 +1452,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":83.9,
@@ -1463,7 +1463,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":51.9,
@@ -1474,7 +1474,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":92.4,
@@ -1485,7 +1485,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-13 21:57:24",
+    "Reading_Date":"2026-11-13 23:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":29.2,
@@ -1496,7 +1496,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 1",
     "Station_Name":"Station Alpha",
     "PM25":108.3,
@@ -1507,7 +1507,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 2",
     "Station_Name":"Station Beta",
     "PM25":139.6,
@@ -1518,7 +1518,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":48.0,
@@ -1529,7 +1529,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 4",
     "Station_Name":"Station Delta",
     "PM25":82.8,
@@ -1540,7 +1540,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":119.0,
@@ -1551,7 +1551,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 6",
     "Station_Name":"Station Zeta",
     "PM25":75.4,
@@ -1562,7 +1562,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 7",
     "Station_Name":"Station Eta",
     "PM25":132.1,
@@ -1573,7 +1573,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-14 01:57:24",
+    "Reading_Date":"2026-11-14 03:12:26",
     "Ward":"Ward 8",
     "Station_Name":"Station Theta",
     "PM25":40.8,
@@ -1584,7 +1584,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 09:57:24",
+    "Reading_Date":"2026-11-11 11:12:26",
     "Ward":"Ward 3",
     "Station_Name":"Station Gamma",
     "PM25":41.0,
@@ -1595,7 +1595,7 @@
     "Dataset_Tag":"SYNTHETIC DEMO DATA"
   },
   {
-    "Reading_Date":"2026-11-11 13:57:24",
+    "Reading_Date":"2026-11-11 15:12:26",
     "Ward":"Ward 5",
     "Station_Name":"Station Epsilon",
     "PM25":118.9,
