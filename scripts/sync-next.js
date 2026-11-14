@@ -8,10 +8,8 @@ try {
   if (fs.existsSync(src)) {
     fs.mkdirSync(dest, { recursive: true });
     fs.cpSync(src, dest, { recursive: true });
-    console.log(`[sync-next] Successfully copied .next from ${src} to ${dest}`);
-  } else {
-    console.warn(`[sync-next] Source .next not found at ${src}`);
+    console.log(`[sync-next] Successfully synced .next to frontend/.next`);
   }
 } catch (err) {
-  console.error('[sync-next] Error copying .next directory:', err);
+  console.error('[sync-next] Error syncing .next to frontend/.next:', err);
 }
