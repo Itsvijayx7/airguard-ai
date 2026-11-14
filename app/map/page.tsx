@@ -10,6 +10,7 @@ import {
   GeoSearchResult,
   PreciseAirQualityEstimate,
   interpolateAirQuality,
+  fetchLiveTelemetry,
   reverseGeocode,
 } from "@/lib/geoAirQuality";
 import { WardMetric } from "@/services/api";
@@ -59,9 +60,9 @@ export default function PollutionMapPage() {
 
   // Handle location selected from search bar
   const handleSelectLocation = useCallback(
-    (item: GeoSearchResult) => {
+    async (item: GeoSearchResult) => {
       setSelectedLocation(item);
-      const estimate = interpolateAirQuality(item.lat, item.lon, wards, item.displayName);
+      const estimate = await fetchLiveTelemetry(item.lat, item.lon, wards, item.displayName);
       setAirQualityEstimate(estimate);
     },
     [wards]
@@ -80,7 +81,7 @@ export default function PollutionMapPage() {
         type: "custom",
       };
       setSelectedLocation(clickedResult);
-      const estimate = interpolateAirQuality(lat, lon, wards, addr);
+      const estimate = await fetchLiveTelemetry(lat, lon, wards, addr);
       setAirQualityEstimate(estimate);
     },
     [wards]
@@ -210,6 +211,22 @@ export default function PollutionMapPage() {
                 <div className="text-[11px] text-muted line-clamp-2">
                   {airQualityEstimate.address}
                 </div>
+
+                {/* Telemetry Source Badge */}
+                {airQualityEstimate.telemetrySourceLabel && (
+                  <div className="flex items-center gap-2 p-2 rounded-xl text-[11px] font-medium border bg-surface border-surfaceBorder">
+                    <span
+                      className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                        airQualityEstimate.telemetrySource === "local_dataset"
+                          ? "bg-emerald-400"
+                          : airQualityEstimate.telemetrySource === "openaq"
+                          ? "bg-cyan-400"
+                          : "bg-purple-400"
+                      }`}
+                    />
+                    <span className="text-foreground truncate">{airQualityEstimate.telemetrySourceLabel}</span>
+                  </div>
+                )}
 
                 {/* Coordinates */}
                 <div className="p-2 rounded-xl bg-surface border border-surfaceBorder flex items-center justify-between text-[11px]">

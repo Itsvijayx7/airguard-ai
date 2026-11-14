@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DashboardLayout } from "@/components/DashboardLayout";
 import { useApp } from "@/components/RoleContext";
 import {
@@ -15,6 +15,8 @@ import {
   RefreshCw,
   Server,
   Lock,
+  Globe,
+  Radio,
 } from "lucide-react";
 
 export default function SettingsPage() {
@@ -22,11 +24,22 @@ export default function SettingsPage() {
   const [geminiKey, setGeminiKey] = useState("");
   const [supabaseUrl, setSupabaseUrl] = useState("");
   const [supabaseKey, setSupabaseKey] = useState("");
+  const [openaqKey, setOpenaqKey] = useState("");
   const [savedStatus, setSavedStatus] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("airguard_openaq_key") || "";
+      setOpenaqKey(saved);
+    }
+  }, []);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
-    setSavedStatus("Credentials updated successfully. Active fallback engine remains engaged.");
+    if (typeof window !== "undefined") {
+      localStorage.setItem("airguard_openaq_key", openaqKey.trim());
+    }
+    setSavedStatus("Credentials and OpenAQ Ground Sensor settings updated successfully.");
     setTimeout(() => setSavedStatus(null), 3000);
   };
 
@@ -135,6 +148,41 @@ export default function SettingsPage() {
               <div className="p-3 rounded-xl bg-surface border border-surfaceBorder text-[11px] text-muted flex items-center justify-between">
                 <span>SQL Schema Migration: <strong className="text-foreground">backend/app/models/supabase_schema.sql</strong></span>
                 <span className="text-emerald-400 font-medium">Ready to deploy</span>
+              </div>
+            </div>
+          </div>
+
+          {/* OpenAQ Physical Ground Station Telemetry Configuration */}
+          <div className="p-6 rounded-2xl bg-surfaceCard border border-surfaceBorder space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-surfaceBorder">
+              <div className="flex items-center gap-2">
+                <div className="p-2 rounded-xl bg-cyan-500/10 text-cyan-400">
+                  <Radio className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground">OpenAQ Global Ground Sensor Network</h3>
+                  <p className="text-xs text-muted">Official physical CPCB & EPA station feeds across 100+ countries</p>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                v3 REST API Active
+              </span>
+            </div>
+
+            <div className="space-y-2 text-xs">
+              <label className="text-muted block">OpenAQ v3 API Key (Optional)</label>
+              <div className="relative">
+                <input
+                  type="password"
+                  value={openaqKey}
+                  onChange={(e) => setOpenaqKey(e.target.value)}
+                  placeholder="Paste your free OpenAQ key here..."
+                  className="w-full p-3 rounded-xl bg-surface border border-surfaceBorder text-xs text-foreground outline-none focus:border-primary font-mono"
+                />
+              </div>
+              <div className="flex items-center justify-between text-[11px] text-muted pt-1">
+                <span>Get your free key in 1 minute at <a href="https://explore.openaq.org/register" target="_blank" rel="noreferrer" className="text-primary underline">explore.openaq.org</a></span>
+                <span className="text-muted">Graceful fallback engaged</span>
               </div>
             </div>
           </div>

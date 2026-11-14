@@ -48,6 +48,7 @@ from app.services.evidence_service import evidence_service
 from app.services.gemini_service import gemini_service
 from app.services.pdf_service import pdf_service
 from app.services.demo_service import demo_service
+from app.services.openaq_service import openaq_service
 
 logger = logging.getLogger("airguard.routes")
 router = APIRouter(prefix=settings.API_PREFIX)
@@ -721,3 +722,14 @@ def geo_estimate(lat: float = Query(...), lon: float = Query(...)):
         "nearest_ward": nearest_w.get("ward", ""),
         "distance_km": round(nearest_d, 2),
     }
+
+
+@router.get("/geo/live", summary="Fetch Live OpenAQ / Atmospheric Telemetry")
+async def geo_live(
+    lat: float = Query(...),
+    lon: float = Query(...),
+    api_key: Optional[str] = Query(None)
+):
+    """Retrieve live ground-truth sensor reading from OpenAQ or fallback atmospheric model."""
+    return await openaq_service.get_live_air_quality(lat, lon, api_key)
+
