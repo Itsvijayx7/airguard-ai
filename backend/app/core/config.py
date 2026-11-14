@@ -7,7 +7,7 @@ class Settings(BaseModel):
     API_PREFIX: str = "/api"
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
     GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
-    OPENAQ_API_KEY: str = os.getenv("OPENAQ_API_KEY", "")
+    OPENAQ_API_KEY: str = os.getenv("OPENAQ_API_KEY", "c84cac6b374ed2508dbb2d737ad3688f025b47852835200a490d63781684f772")
     SUPABASE_URL: str = os.getenv("SUPABASE_URL", "")
     SUPABASE_KEY: str = os.getenv("SUPABASE_KEY", "")
     CORS_ORIGINS: list[str] = [

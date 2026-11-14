@@ -62,8 +62,7 @@ class OpenAQService:
                     if resp.status_code == 200:
                         data = resp.json()
                         results = data.get("results", [])
-                        if results:
-                            best = results[0]
+                        for best in results:
                             station_name = best.get("name", "OpenAQ Ground Station")
                             owner_dict = best.get("owner", {})
                             provider = owner_dict.get("name") if isinstance(owner_dict, dict) else "CPCB / Government Station"
@@ -72,20 +71,33 @@ class OpenAQService:
                             c_lon = best.get("coordinates", {}).get("longitude", lon)
                             dist = round(haversine(lat, lon, c_lat, c_lon), 2)
 
-                            sensors = best.get("sensors", [])
+                            loc_id = best.get("id")
+                            sensor_map = {s["id"]: s.get("parameter", {}).get("name", "").lower() for s in best.get("sensors", [])}
                             pm25 = None
                             pm10 = None
-                            for s in sensors:
-                                param = s.get("parameter", {}).get("name", "").lower()
-                                if "pm25" in param or "pm2.5" in param:
-                                    pm25 = s.get("latest", {}).get("value")
-                                elif "pm10" in param:
-                                    pm10 = s.get("latest", {}).get("value")
+
+                            if loc_id:
+                                try:
+                                    latest_resp = await client.get(
+                                        f"{self.BASE_URL}/locations/{loc_id}/latest",
+                                        headers={"X-API-Key": active_key, "User-Agent": "AirGuardAI/1.0"}
+                                    )
+                                    if latest_resp.status_code == 200:
+                                        for m in latest_resp.json().get("results", []):
+                                            p_name = sensor_map.get(m.get("sensorsId"), "")
+                                            val = m.get("value")
+                                            if val is not None and val > 0:
+                                                if "pm25" in p_name or "pm2.5" in p_name:
+                                                    pm25 = float(val)
+                                                elif "pm10" in p_name:
+                                                    pm10 = float(val)
+                                except Exception as exc:
+                                    logger.warning("Error fetching location latest readings: %s", exc)
 
                             if pm25 is not None:
                                 return {
                                     "source": "openaq",
-                                    "source_display": "OpenAQ Physical Ground Station",
+                                    "source_display": "OpenAQ Physical Ground Station (CPCB)",
                                     "is_ground_sensor": True,
                                     "station_name": station_name,
                                     "provider": provider,

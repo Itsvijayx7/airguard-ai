@@ -313,9 +313,14 @@ export async function fetchLiveTelemetry(
     }
   }
 
-  // 2. Query backend or OpenAQ directly
+  // 2. Query OpenAQ v3 Ground Sensors
   try {
-    const key = openAqApiKey || (typeof window !== "undefined" ? localStorage.getItem("airguard_openaq_key") : "") || "";
+    const key =
+      openAqApiKey ||
+      (typeof window !== "undefined" ? localStorage.getItem("airguard_openaq_key") : "") ||
+      process.env.NEXT_PUBLIC_OPENAQ_API_KEY ||
+      "c84cac6b374ed2508dbb2d737ad3688f025b47852835200a490d63781684f772";
+
     if (key) {
       const openAqUrl = `https://api.openaq.org/v3/locations?coordinates=${lat},${lon}&radius=50000&limit=3`;
       const res = await fetch(openAqUrl, {
@@ -326,22 +331,40 @@ export async function fetchLiveTelemetry(
       if (res.ok) {
         const json = await res.json();
         const results = json.results || [];
-        if (results.length > 0) {
-          const best = results[0];
+        for (const best of results) {
           const cLat = best.coordinates?.latitude || lat;
           const cLon = best.coordinates?.longitude || lon;
           const dist = Number(haversineDistance(lat, lon, cLat, cLon).toFixed(1));
-          const sensors = best.sensors || [];
+          const locId = best.id;
+          const sensorMap: Record<number, string> = {};
+          (best.sensors || []).forEach((s: any) => {
+            sensorMap[s.id] = (s.parameter?.name || "").toLowerCase();
+          });
 
           let pm25Val: number | null = null;
           let pm10Val: number | null = null;
-          for (const s of sensors) {
-            const pName = (s.parameter?.name || "").toLowerCase();
-            if (pName.includes("pm25") || pName.includes("pm2.5")) {
-              pm25Val = s.latest?.value ?? null;
-            } else if (pName.includes("pm10")) {
-              pm10Val = s.latest?.value ?? null;
-            }
+
+          if (locId) {
+            try {
+              const latestRes = await fetch(`https://api.openaq.org/v3/locations/${locId}/latest`, {
+                headers: { "X-API-Key": key, Accept: "application/json" },
+                signal: AbortSignal.timeout(3500),
+              });
+              if (latestRes.ok) {
+                const latestJson = await latestRes.json();
+                for (const m of latestJson.results || []) {
+                  const pName = sensorMap[m.sensorsId] || "";
+                  const val = m.value;
+                  if (val !== null && val > 0) {
+                    if (pName.includes("pm25") || pName.includes("pm2.5")) {
+                      pm25Val = val;
+                    } else if (pName.includes("pm10")) {
+                      pm10Val = val;
+                    }
+                  }
+                }
+              }
+            } catch (_) {}
           }
 
           if (pm25Val !== null) {
@@ -356,7 +379,7 @@ export async function fetchLiveTelemetry(
               estimatedPm10: estPm10,
               category: cat,
               nearestStation: best.name || "OpenAQ Ground Station",
-              nearestWard: best.owner?.name || "Official Monitoring Network",
+              nearestWard: best.owner?.name || "Official CPCB / Government Network",
               distanceKm: dist,
               direction: getBearingDirection(lat, lon, cLat, cLon),
               confidence: dist <= 5 ? "High" : dist <= 15 ? "Moderate" : "Regional",
@@ -367,7 +390,7 @@ export async function fetchLiveTelemetry(
                   ? "Stage-II emergency protocol: Issue air quality warning for vulnerable groups."
                   : "Regular environmental monitoring schedule active.",
               telemetrySource: "openaq",
-              telemetrySourceLabel: "OpenAQ Physical Ground Station",
+              telemetrySourceLabel: "OpenAQ Physical Ground Station (CPCB)",
               isPhysicalGroundSensor: true,
             };
           }

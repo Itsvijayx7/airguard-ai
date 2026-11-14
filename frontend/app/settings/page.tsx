@@ -24,7 +24,7 @@ export default function SettingsPage() {
   const [geminiKey, setGeminiKey] = useState("");
   const [supabaseUrl, setSupabaseUrl] = useState("");
   const [supabaseKey, setSupabaseKey] = useState("");
-  const [openaqKey, setOpenaqKey] = useState("");
+  const [openaqKey, setOpenaqKey] = useState("c84cac6b374ed2508dbb2d737ad3688f025b47852835200a490d63781684f772");
   const [savedStatus, setSavedStatus] = useState<string | null>(null);
 
   useEffect(() => {
@@ -211,11 +211,10 @@ export default function SettingsPage() {
                   key={item.id}
                   type="button"
                   onClick={() => setRole(item.id as any)}
-                  className={`p-3 rounded-xl border text-center transition-all ${
-                    role === item.id
-                      ? "bg-primary/10 border-primary text-primary font-semibold"
-                      : "bg-surface border-surfaceBorder text-muted hover:text-foreground"
-                  }`}
+                  className={`p-3 rounded-xl border text-center transition-all ${role === item.id
+                    ? "bg-primary/10 border-primary text-primary font-semibold"
+                    : "bg-surface border-surfaceBorder text-muted hover:text-foreground"
+                    }`}
                 >
                   {item.title}
                 </button>
