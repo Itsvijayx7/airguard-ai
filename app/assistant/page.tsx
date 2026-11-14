@@ -140,22 +140,20 @@ export default function AssistantPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setMode("vercel-agent")}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                mode === "vercel-agent"
-                  ? "bg-primary/20 text-primary border border-primary/40 shadow-sm shadow-primary/20"
-                  : "bg-surface text-muted hover:text-foreground border border-surfaceBorder"
-              }`}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all ${mode === "vercel-agent"
+                ? "bg-primary/20 text-primary border border-primary/40 shadow-sm shadow-primary/20"
+                : "bg-surface text-muted hover:text-foreground border border-surfaceBorder"
+                }`}
             >
               <Zap className="w-3.5 h-3.5" />
               <span>Vercel AI SDK Agent</span>
             </button>
             <button
               onClick={() => setMode("grounded-chat")}
-              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                mode === "grounded-chat"
-                  ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/20"
-                  : "bg-surface text-muted hover:text-foreground border border-surfaceBorder"
-              }`}
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all ${mode === "grounded-chat"
+                ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/20"
+                : "bg-surface text-muted hover:text-foreground border border-surfaceBorder"
+                }`}
             >
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Direct Audit Mode</span>
@@ -168,9 +166,8 @@ export default function AssistantPage() {
           {messages.map((m, idx) => (
             <div
               key={idx}
-              className={`flex gap-3 text-sm ${
-                m.role === "user" ? "justify-end" : "justify-start"
-              }`}
+              className={`flex gap-3 text-sm ${m.role === "user" ? "justify-end" : "justify-start"
+                }`}
             >
               {m.role === "assistant" && (
                 <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
@@ -179,11 +176,10 @@ export default function AssistantPage() {
               )}
 
               <div
-                className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm ${
-                  m.role === "user"
-                    ? "bg-primary text-white rounded-tr-none"
-                    : "bg-surface border border-surfaceBorder text-foreground rounded-tl-none"
-                }`}
+                className={`max-w-[85%] rounded-2xl px-4 py-3 shadow-sm ${m.role === "user"
+                  ? "bg-primary text-white rounded-tr-none"
+                  : "bg-surface border border-surfaceBorder text-foreground rounded-tl-none"
+                  }`}
               >
                 {/* Agent Tool Executions telemetry */}
                 {m.executed_tools && m.executed_tools.length > 0 && (
